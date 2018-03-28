@@ -27,11 +27,11 @@ class Music extends StatelessWidget {
             new ListItem()
           ],
         ),
-        new Column(
-          mainAxisSize: MainAxisSize.min,
+       new Expanded(child:  new Column(
+          mainAxisSize: MainAxisSize.max,
           
-          children: <Widget>[new ListSetting(), new MusicList()],
-        ),
+          children: <Widget>[new ListSetting(), new Expanded(child: new MusicList(),),],
+        ),)
       ],
     );
   }
@@ -42,7 +42,8 @@ class MusicList extends StatelessWidget {
   Widget build(BuildContext context) {
     print(MediaQuery.of(context));
     return new Container(
-        height: MediaQuery.of(context).size.height - 500.00,
+        // height: MediaQuery.of(context).size.height - 500.00,
+        decoration: new BoxDecoration(border: new Border.all(width: 1.00,color: Colors.red)),
         // constraints: new BoxConstraints(maxHeight:MediaQuery.of(context).size.height - 400.00, ),
         child: new ListView(
           

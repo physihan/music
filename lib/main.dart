@@ -81,24 +81,50 @@ class MyHomePage extends StatelessWidget {
         ),
         new Positioned(
           child: new Container(
-              height: 100.00,
-              width: MediaQuery.of(context).size.width,
-              // constraints: new BoxConstraints(),
-              decoration: new BoxDecoration(
-                  color: Colors.grey[350],
-                  border: new Border.all(width: 1.0, color: Colors.red)),
-              child: new Row(
-                children: <Widget>[
-                  // new Text('data111'),
-                  // new Icon(Icons.settings),
-                  new GestureDetector(
-                    child: new Image(
-                      image:
-                          new NetworkImage('http://via.placeholder.com/60x60'),
-                    ),
-                  )
-                ],
-              )),
+            height: 80.00,
+            width: MediaQuery.of(context).size.width,
+            // constraints: new BoxConstraints(),
+            decoration: new BoxDecoration(
+              color: Colors.grey[350],
+              // border: new Border.all(width: 1.0, color: Colors.red),
+            ),
+            child: new Material(
+                child: new Row(
+              children: <Widget>[
+                new Image.network('http://via.placeholder.com/60x60'),
+
+                new Expanded(
+                  child: new Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Text('  国王与乞丐'),
+                      new Text('  横划可以切换上下首哦')
+                    ],
+                  ),
+                ),
+                new IconButton(
+                  icon: new Icon(Icons.play_circle_outline),
+                  iconSize: 40.00,
+                ),
+                new IconButton(
+                  icon: new Icon(Icons.playlist_play),
+                  iconSize: 50.00,
+                ),
+                // // new Text('data111'),
+                // new IconButton(
+                //   icon: new Icon(Icons.search),
+                //   onPressed: null,
+                // ),
+                // new Icon(Icons.settings),
+                // new GestureDetector(
+                //   child: new Image(
+                //     image: new NetworkImage('http://via.placeholder.com/60x60'),
+                //   ),
+                // )
+              ],
+            )),
+          ),
           bottom: 00.00,
         )
       ],

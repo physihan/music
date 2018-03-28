@@ -11,7 +11,7 @@ class Test extends StatelessWidget {
           new Positioned(
             child: new Container(
               child: new Row(
-                children: <Widget>[new Text('data')],
+                children: <Widget>[new Text('data',)],
               ),
             ),
             bottom: 0.00,
