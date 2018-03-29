@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './pages/music_list.dart';
 import './pages/test.dart';
+// import 'package:audioplayer/audioplayer.dart';
+import './pages/play.dart';
 
 void main() => runApp(new MyApp());
 
@@ -51,8 +53,12 @@ class MyHomePage extends StatelessWidget {
               actions: <Widget>[
                 new IconButton(
                   icon: new Icon(Icons.search),
-                  color: Colors.red,
-                  onPressed: null,
+                  // color: Colors.red,
+                  onPressed: () {
+                    Scaffold.of(context).showSnackBar(new SnackBar(
+                          content: new Text('data'),
+                        ));
+                  },
                 )
               ],
               bottom: new TabBar(
@@ -63,11 +69,103 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
+            bottomNavigationBar: new Builder(
+              builder: (BuildContext context) {
+                return new Container(
+                  height: 80.00,
+                  child: new Row(
+                    children: <Widget>[
+                      new Image.network('http://via.placeholder.com/60x60'),
+                      new Expanded(
+                        child: new Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Text('  国王与乞丐'),
+                            new Text('  横划可以切换上下首哦')
+                          ],
+                        ),
+                      ),
+                      new IconButton(
+                        icon: new Icon(Icons.play_circle_outline),
+                        iconSize: 40.00,
+                      ),
+                      new IconButton(
+                        icon: new Icon(Icons.playlist_play),
+                        iconSize: 50.00,
+                        onPressed: () {
+                          // Scaffold.of(context).showSnackBar(new SnackBar(
+                          //       content: new Text('data'),
+                          //     ));
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext contex) {
+                              return new Container(
+                                  height: 300.00,
+                                  decoration: new BoxDecoration(
+                                      // color: Colors.lightGreenAccent,
+                                      ),
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Container(
+                                        decoration: new BoxDecoration(
+                                            border: new Border(
+                                                bottom: new BorderSide(
+                                                    width: 1.00,
+                                                    color: Colors.grey))),
+                                        height: 40.00,
+                                        child: new Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            new Row(
+                                              children: <Widget>[
+                                                new Icon(Icons.update),
+                                                new Text('  随机播放(50)'),
+                                              ],
+                                            ),
+                                            new Row(
+                                              children: <Widget>[
+                                                new Icon(Icons.collections),
+                                                new Text(' 收藏全部'),
+                                                new IconButton(
+                                                  icon: new Icon(Icons.delete),
+                                                  onPressed: () {
+                                                    print('');
+                                                  },
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      new Expanded(
+                                        child: ListView.builder(
+                                          itemBuilder:
+                                              (BuildContext context, int x) {
+                                            if (x.isOdd) return new Divider();
+                                            return new ListTile(
+                                              title: new Text('data$x'),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                    ],
+                                  ));
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
             body: new TabBarView(
               children: <Widget>[
                 new Music(),
                 new Test(),
-                new Icon(Icons.directions_bike),
+                new AudioApp(),
               ],
             ),
             drawer: new Drawer(
@@ -79,59 +177,66 @@ class MyHomePage extends StatelessWidget {
             )),
           ),
         ),
-        new Positioned(
-          child: new Container(
-            height: 80.00,
-            width: MediaQuery.of(context).size.width,
-            // constraints: new BoxConstraints(),
-            decoration: new BoxDecoration(
-              color: Colors.grey[350],
-              // border: new Border.all(width: 1.0, color: Colors.red),
-            ),
-            child: new Material(
-                child: new Row(
-              children: <Widget>[
-                new Image.network('http://via.placeholder.com/60x60'),
-
-                new Expanded(
-                  child: new Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Text('  国王与乞丐'),
-                      new Text('  横划可以切换上下首哦')
-                    ],
-                  ),
-                ),
-                new IconButton(
-                  icon: new Icon(Icons.play_circle_outline),
-                  iconSize: 40.00,
-                ),
-                new IconButton(
-                  icon: new Icon(Icons.playlist_play),
-                  iconSize: 50.00,
-                ),
-                // // new Text('data111'),
-                // new IconButton(
-                //   icon: new Icon(Icons.search),
-                //   onPressed: null,
-                // ),
-                // new Icon(Icons.settings),
-                // new GestureDetector(
-                //   child: new Image(
-                //     image: new NetworkImage('http://via.placeholder.com/60x60'),
-                //   ),
-                // )
-              ],
-            )),
-          ),
-          bottom: 00.00,
-        )
       ],
     );
   }
 }
 // [1,2,3].map(()=>new Text('data')).toList()
+
+// new Positioned(
+//           child: new Container(
+//             height: 10.00,
+//             width: MediaQuery.of(context).size.width,
+//             // constraints: new BoxConstraints(),
+//             decoration: new BoxDecoration(
+//               color: Colors.grey[350],
+//               // border: new Border.all(width: 1.0, color: Colors.red),
+//             ),
+//             child: new Material(
+//               child: new Row(
+//                 children: <Widget>[
+//                   new Image.network('http://via.placeholder.com/60x60'),
+
+//                   new Expanded(
+//                     child: new Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: <Widget>[
+//                         new Text('  国王与乞丐'),
+//                         new Text('  横划可以切换上下首哦')
+//                       ],
+//                     ),
+//                   ),
+//                   new IconButton(
+//                     icon: new Icon(Icons.play_circle_outline),
+//                     iconSize: 40.00,
+//                   ),
+//                   new IconButton(
+//                     icon: new Icon(Icons.playlist_play),
+//                     iconSize: 50.00,
+//                     onPressed: () {
+//                       Scaffold.of(context).showSnackBar(new SnackBar(
+//                             content: new Text('data'),
+//                           ));
+//                     },
+//                   ),
+//                   // // new Text('data111'),
+//                   // new IconButton(
+//                   //   icon: new Icon(Icons.search),
+//                   //   onPressed: null,
+//                   // ),
+//                   // new Icon(Icons.settings),
+//                   // new GestureDetector(
+//                   //   child: new Image(
+//                   //     image: new NetworkImage('http://via.placeholder.com/60x60'),
+//                   //   ),
+//                   // )
+//                 ],
+//               ),
+//             ),
+//           ),
+//           bottom: 00.00,
+//         )
 
 //  new Scaffold(
 //       appBar: new AppBar(

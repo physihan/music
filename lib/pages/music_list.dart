@@ -27,11 +27,17 @@ class Music extends StatelessWidget {
             new ListItem()
           ],
         ),
-       new Expanded(child:  new Column(
-          mainAxisSize: MainAxisSize.max,
-          
-          children: <Widget>[new ListSetting(), new Expanded(child: new MusicList(),),],
-        ),)
+        new Expanded(
+          child: new Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              new ListSetting(),
+              new Expanded(
+                child: new MusicList(),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
@@ -43,10 +49,10 @@ class MusicList extends StatelessWidget {
     print(MediaQuery.of(context));
     return new Container(
         // height: MediaQuery.of(context).size.height - 500.00,
-        decoration: new BoxDecoration(border: new Border.all(width: 1.00,color: Colors.red)),
+        decoration: new BoxDecoration(
+            border: new Border.all(width: 1.00, color: Colors.red)),
         // constraints: new BoxConstraints(maxHeight:MediaQuery.of(context).size.height - 400.00, ),
         child: new ListView(
-          
           children: <Widget>[
             new ListTile(
               leading: new Image(
@@ -55,6 +61,10 @@ class MusicList extends StatelessWidget {
                 height: 60.00,
               ),
               title: new Text('歌单1'),
+              onTap: () {
+                print('object');
+               
+              },
             ),
             new ListTile(
               leading: new Image(
