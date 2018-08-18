@@ -49,7 +49,15 @@ class MyHomePage extends StatelessWidget {
           length: 3,
           child: new Scaffold(
             appBar: new AppBar(
-              title: new Text('网易云音乐'),
+              // title: new Text('网易云音乐'),
+              // new Text('网易云音乐'),
+              title: new TabBar(
+                tabs: [
+                  new Tab(icon: new Icon(Icons.music_note)),
+                  new Tab(icon: new Icon(Icons.directions_transit)),
+                  new Tab(icon: new Icon(Icons.directions_bike)),
+                ],
+              ),
               actions: <Widget>[
                 new IconButton(
                   icon: new Icon(Icons.search),
@@ -61,13 +69,13 @@ class MyHomePage extends StatelessWidget {
                   },
                 )
               ],
-              bottom: new TabBar(
-                tabs: [
-                  new Tab(icon: new Icon(Icons.music_note)),
-                  new Tab(icon: new Icon(Icons.directions_transit)),
-                  new Tab(icon: new Icon(Icons.directions_bike)),
-                ],
-              ),
+              // bottom: new TabBar(
+              //   tabs: [
+              //     new Tab(icon: new Icon(Icons.music_note)),
+              //     new Tab(icon: new Icon(Icons.directions_transit)),
+              //     new Tab(icon: new Icon(Icons.directions_bike)),
+              //   ],
+              // ),
             ),
             bottomNavigationBar: new Builder(
               builder: (BuildContext context) {
