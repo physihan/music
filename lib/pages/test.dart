@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './discovery/recommend.dart';
-
+import './discovery/home.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 // class Test extends StatefulWidget {
 //    TabController _tabController=new TabController(vsync: this, length: 3);
 //   // MusicList()
@@ -73,23 +73,61 @@ class _TestState extends State<Test> with SingleTickerProviderStateMixin {
       ),
       body: new TabBarView(controller: _tabController, children: [
         Recommend(),
+        ListView(
+            // primary: true,
+            // physics: ,
 
-       Column(children: <Widget>[ GridView.extent(
-          maxCrossAxisExtent: 150.0,
-          primary: false,
-          padding: const EdgeInsets.all(1.0),
-          crossAxisSpacing: 1.0,
-          // crossAxisCount: 2,
-          children: <Widget>[
-            const Text('He\'d have you all unravel at the'),
-            const Text('Heed not the rabble'),
-            const Text('Sound of screams but the'),
-            const Text('Who scream'),
-            const Text('Revolution is coming...'),
-            const Text('Revolution, they...'),
+            shrinkWrap: true,
+            children: [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              1,
+              5,
+              15,
+              1,
+              1,
+              1,
+              1,
+              1
+            ].map((x) {
+              return Container(
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1.0))),
+                child: Row(
+                    // crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: <Widget>[Text('Alive'), Text('签证号-myart')],
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.play_circle_outline),
+                      )
+                    ]),
+              );
+            }).toList()),
+        new Carousel(
+          images: [
+            new NetworkImage(
+                'http://p1.music.126.net/QaCIlALBDrwpoMsoEZk3_w==/109951163467878750.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp'),
+            new NetworkImage(
+                'http://p1.music.126.net/QaCIlALBDrwpoMsoEZk3_w==/109951163467878750.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp'),
+            new NetworkImage(
+                'http://p1.music.126.net/QaCIlALBDrwpoMsoEZk3_w==/109951163467878750.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp'),
           ],
-        )],),
-        Text('1'),
+        )
       ]),
     );
   }

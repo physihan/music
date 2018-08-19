@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './pages/music_list.dart';
+// import './pages/music_list.dart';
+import './pages/zone/home.dart';
 import './pages/test.dart';
 // import 'package:audioplayer/audioplayer.dart';
 import './pages/play.dart';

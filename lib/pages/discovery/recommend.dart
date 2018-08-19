@@ -66,30 +66,55 @@ class Recommend extends StatelessWidget {
                           child: Text('最新音乐'),
                         ));
                   })),
-              ListView(
-                  // primary: true,
-                  // physics: ,
-                  shrinkWrap: true,
-                  children: [1, 2, 3, 4, 5, 6, 7, 8].map((x) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(width: 1.0))),
-                      child: Row(
-                          // crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: <Widget>[
-                                Text('Alive'),
-                                Text('签证号-myart')
-                              ],
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.play_circle_outline),
-                            )
-                          ]),
-                    );
-                  }).toList()),
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   itemBuilder: (BuildContext context, int index) => Container(
+              //         decoration: BoxDecoration(
+              //             border: Border(bottom: BorderSide(width: 1.0))),
+              //         child: Row(
+              //             // crossAxisAlignment: CrossAxisAlignment.stretch,
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Column(
+              //                 children: <Widget>[
+              //                   Text('Alive'),
+              //                   Text('签证号-myart')
+              //                 ],
+              //               ),
+              //               IconButton(
+              //                 icon: Icon(Icons.play_circle_outline),
+              //               )
+              //             ]),
+              //       ),
+              // ),
+              Container(
+                height: 200.0,
+                child: ListView(
+                    // primary: true,
+                    // physics: ,
+
+                    shrinkWrap: true,
+                    children: [1, 2, 3, 4, 5, 6, 7, 8,9,10].map((x) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            border: Border(bottom: BorderSide(width: 1.0))),
+                        child: Row(
+                            // crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                children: <Widget>[
+                                  Text('Alive'),
+                                  Text('签证号-myart')
+                                ],
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.play_circle_outline),
+                              )
+                            ]),
+                      );
+                    }).toList()),
+              )
             ],
           ),
         ));
